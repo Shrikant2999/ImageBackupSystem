@@ -1,0 +1,51 @@
+<HTML>
+    <head>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+    <nav class="fixed-top">
+        <ul class="nav nav-tabs">
+                 
+              <li class="nav-item">
+                <a class="nav-link" style = "position:fixed; right:40px" href="/allimages">photos</a>
+                </li>
+              
+            </ul>
+    </nav>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Backup Details</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="backup-form" class="form" action="/upload" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <h3 class="text-center text-info">Backup Details</h3>
+                            <div class="form-group">
+                                <label for="name" class="text-info">Name</label><br>
+                                <input type="text" name="name" id="name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="desc" class="text-info">Description</label><br>
+                                <textarea name="desc" id="desc" class="form-control" rows="2" cols="30"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for='image' class="text-info">Browse image</label><br>
+                                {{ form.as_p }}
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="upload" class="btn btn-info btn-md" value="upload">
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</HTML>
